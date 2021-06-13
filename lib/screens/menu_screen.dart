@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
-  const MenuScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,30 +8,35 @@ class MenuScreen extends StatelessWidget {
         padding: const EdgeInsets.only(top: 10, right: 20, left: 20),
         child: ListView(
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  foregroundImage: NetworkImage(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlNmuBMumcphlldbgZxHV5gPNy43A3yimdBw&usqp=CAU"),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "เพิ่มคำลงในช่องค้นหา",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "See your profile",
-                        style: TextStyle(),
-                      )
-                    ],
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, "/profile");
+              },
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    foregroundImage: NetworkImage(
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlNmuBMumcphlldbgZxHV5gPNy43A3yimdBw&usqp=CAU"),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "เพิ่มคำลงในช่องค้นหา",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "See your profile",
+                          style: TextStyle(),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 10,

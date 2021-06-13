@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learning_flutter/screens/friend_screen.dart';
 import 'package:learning_flutter/screens/home_screen.dart';
 import 'package:learning_flutter/screens/menu_screen.dart';
 import 'package:learning_flutter/screens/notifications_screen.dart';
+import 'package:learning_flutter/screens/profile_screen.dart';
+import 'package:learning_flutter/screens/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,11 +16,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-            primarySwatch: Colors.blue,
-            fontFamily: GoogleFonts.kanit().fontFamily),
-        home: HomePage());
+      routes: {
+        '/splash_screen': (context) => SplashScreen(),
+        '/home_page': (context) => HomePage(),
+        '/profile': (context) => ProfileScreen(),
+      },
+      initialRoute: '/splash_screen',
+      title: 'Flutter Demo',
+      theme: ThemeData(
+          primaryColor: Colors.white,
+          accentColor: Colors.cyan[600],
+          fontFamily: GoogleFonts.kanit().fontFamily),
+    );
   }
 }
 
@@ -34,7 +42,7 @@ class _HomePageState extends State<HomePage> {
     HomeScreen(),
     FriendScreen(),
     NotificationScreen(),
-    MenuScreen()
+    MenuScreen(),
   ];
   final String profile =
       "https://www.carters.com/on/demandware.static/-/Sites-Carters-Library/default/dw2b22f61f/content/carters/cslp/sbc/040121/CAR_Q2_2021_KG_ShopAll.jpg";
@@ -97,9 +105,8 @@ class _HomePageState extends State<HomePage> {
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
-    Key? key,
-    required this.profile,
-  }) : super(key: key);
+    this.profile,
+  });
 
   final String profile;
 

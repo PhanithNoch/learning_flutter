@@ -31,6 +31,14 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
+   let useHTML = true;
+    if(useHTML){
+      window.flutterWebRenderer = "html";
+    }
+    else{
+      window.flutterWebRenderer = "canvaskit";
+    }
+
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
     function loadMainDartJs() {
